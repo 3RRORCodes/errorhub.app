@@ -5,6 +5,11 @@ export interface NavLink {
   href: string;
 }
 
+export interface HeroMessage {
+  icon: LucideIcon;
+  text: string;
+}
+
 export interface ServiceItem {
   id: string;
   title: string;
@@ -18,6 +23,7 @@ export interface ReleaseItem {
   id: string;
   title: string;
   category: string;
+  description: string;
   image: string;
   href: string;
 }

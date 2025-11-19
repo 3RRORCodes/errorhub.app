@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import Button from '../ui/Button';
+import RotatingText from '../ui/RotatingText';
+import { HERO_MESSAGES } from '../../data';
 
 const Hero: React.FC = () => {
   return (
@@ -12,15 +14,14 @@ const Hero: React.FC = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl">
-          {/* Badge */}
+          {/* Dynamic Rotating Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-electric-blue mb-6"
+            className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6 min-w-[180px]"
           >
-            <span className="w-2 h-2 rounded-full bg-electric-blue animate-pulse"></span>
-            V2.0 NOW LIVE
+            <RotatingText items={HERO_MESSAGES} />
           </motion.div>
 
           {/* Headline */}
@@ -30,7 +31,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold font-sans tracking-tighter text-white leading-[1.1] mb-6"
           >
-            A MODERN DIGITAL STUDIO FOR <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-600">TOOLS & APPS</span>
+            A MODERN DIGITAL STUDIO <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-600">CRAFTING EXPERIENCES</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -40,7 +41,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-lg md:text-xl text-gray-400 max-w-2xl mb-10 font-light leading-relaxed"
           >
-            We build custom tools, web experiences, bots and high-quality FiveM releases — all under one studio. Premium quality, optimized performance.
+            We build custom discord bots, web experiences and optimized FiveM systems — all under one studio.
           </motion.p>
 
           {/* CTAs */}

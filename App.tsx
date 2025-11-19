@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
-import Ticker from './components/sections/Ticker';
 import Services from './components/sections/Services';
 import Releases from './components/sections/Releases';
 import Process from './components/sections/Process';
@@ -20,7 +19,6 @@ function App() {
       
       <main>
         <Hero />
-        <Ticker />
         <Services />
         <Releases />
 
