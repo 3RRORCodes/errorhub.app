@@ -9,8 +9,6 @@ import Testimonials from './components/sections/Testimonials';
 import Footer from './components/sections/Footer';
 import StarField from './components/canvas/StarField';
 import Button from './components/ui/Button';
-import { PROMOS } from './data';
-import { motion } from 'framer-motion';
 
 function App() {
   return (
@@ -23,22 +21,6 @@ function App() {
         <Ticker />
         <Services />
         <Releases />
-
-        {/* Promo Grid (Mini Section) */}
-        <section className="py-12 px-6 relative z-10 container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-             {PROMOS.map((promo) => (
-               <motion.div 
-                key={promo.id}
-                whileHover={{ y: -5 }}
-                className={`p-6 rounded-xl bg-white/5 border-l-2 ${promo.color} backdrop-blur-sm`}
-               >
-                 <h3 className="font-bold text-white mb-1">{promo.title}</h3>
-                 <p className="text-xs text-gray-400">{promo.description}</p>
-               </motion.div>
-             ))}
-          </div>
-        </section>
 
         <Process />
         <Testimonials />
