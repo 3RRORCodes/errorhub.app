@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 import { TESTIMONIALS } from '../../data';
+import { staggerContainer, fadeInUp } from '../../utils/animations';
 
 const Testimonials: React.FC = () => {
   return (
@@ -15,6 +17,7 @@ const Testimonials: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold font-sans mb-4"
           >
             TRUSTED BY <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-cyber-purple">CREATORS</span>
@@ -23,21 +26,24 @@ const Testimonials: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }} 
+            transition={{ delay: 0.2, duration: 0.6 }} 
             className="text-gray-400 max-w-xl"
           >
             See what community owners and developers are saying about our tools.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {TESTIMONIALS.map((t, idx) => (
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+          {TESTIMONIALS.map((t) => (
             <motion.div
               key={t.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
+              variants={fadeInUp}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
               className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl relative group hover:bg-white/[0.07] transition-colors duration-300"
             >
@@ -63,7 +69,7 @@ const Testimonials: React.FC = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

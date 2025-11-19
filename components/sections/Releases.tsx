@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { RELEASES } from '../../data';
 import Button from '../ui/Button';
+import { staggerContainer, scaleIn } from '../../utils/animations';
 
 const Releases: React.FC = () => {
   return (
@@ -9,20 +11,44 @@ const Releases: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold font-sans mb-4">FEATURED RELEASES</h2>
-            <p className="text-gray-400 font-mono">High-performance resources for your project.</p>
+            <motion.h2 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold font-sans mb-4"
+            >
+              FEATURED RELEASES
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-gray-400 font-mono"
+            >
+              High-performance resources for your project.
+            </motion.p>
           </div>
-          <Button variant="outline">View All Products</Button>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <Button variant="outline">View All Products</Button>
+          </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {RELEASES.map((release, idx) => (
             <motion.div
               key={release.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.2 }}
+              variants={scaleIn}
               className="group relative"
             >
               {/* Image Container */}
@@ -45,7 +71,7 @@ const Releases: React.FC = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
