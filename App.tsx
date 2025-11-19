@@ -9,10 +9,12 @@ import Testimonials from './components/sections/Testimonials';
 import Footer from './components/sections/Footer';
 import StarField from './components/canvas/StarField';
 import Button from './components/ui/Button';
+import SmoothScroll from './components/layout/SmoothScroll';
 
 function App() {
   return (
     <div className="min-h-screen bg-obsidian text-white font-sans selection:bg-electric-blue/30">
+      <SmoothScroll />
       <StarField />
       <Navbar />
       

@@ -73,6 +73,23 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #3B82F6;
       }
+
+      /* Lenis Smooth Scroll */
+      html.lenis, html.lenis body {
+        height: auto;
+      }
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
     </style>
   <script type="importmap">
 {
@@ -84,7 +101,8 @@
     "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
     "@react-three/drei": "https://aistudiocdn.com/@react-three/drei@^10.7.7",
     "@react-three/fiber": "https://aistudiocdn.com/@react-three/fiber@^9.4.0",
-    "three": "https://aistudiocdn.com/three@^0.181.2"
+    "three": "https://aistudiocdn.com/three@^0.181.2",
+    "lenis": "https://aistudiocdn.com/lenis@^1.1.14"
   }
 }
 </script>
